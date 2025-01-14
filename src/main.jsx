@@ -5,8 +5,9 @@ import { BuilderComponent, builder, useIsPreviewing } from '@builder.io/react';
 
 import './index.css';
 
-// Put your API key here
-builder.init('2262bcb0bce644bfacdca6c607c112cf');
+// Store the API key in a constant
+const BUILDER_API_KEY = '2262bcb0bce644bfacdca6c607c112cf';
+builder.init(BUILDER_API_KEY);
 
 function App() {
   const [allPages, setAllPages] = useState([]);
@@ -35,7 +36,7 @@ function App() {
           </Link>
           {allPages.map(page => {
             return (
-              <Link className="link" to={page.data.url}>
+              <Link className="link" to={page.data.url} key={page.data.url}>
                 {page.name}
               </Link>
             );

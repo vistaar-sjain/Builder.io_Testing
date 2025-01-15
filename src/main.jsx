@@ -18,7 +18,7 @@ function App() {
         fields: 'data.url,name',
         options: { noTargeting: true },
       });
-      setAllPages(pages);
+      setAllPages(pages);  
     }
     getStaticProps();
   }, []);

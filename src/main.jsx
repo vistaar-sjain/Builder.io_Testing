@@ -25,7 +25,14 @@ function App() {
 
   return (
     <BrowserRouter>
-      <header>
+      <div className="App">
+        <Switch>
+          <Route path="/" exact component={Home} />
+          <Route path="/about" exact component={About} />
+          <Route render={({ location }) => <CatchAllRoute key={location.key} />} />
+        </Switch>
+      </div>
+      <footer>
         <div className="logo">MY SITE</div>
         <div className="links">
           <Link className="link" to="/">
@@ -45,14 +52,7 @@ function App() {
             404
           </Link>
         </div>
-      </header>
-      <div className="App">
-        <Switch>
-          <Route path="/" exact component={Home} />
-          <Route path="/about" exact component={About} />
-          <Route render={({ location }) => <CatchAllRoute key={location.key} />} />
-        </Switch>
-      </div>
+      </footer>
     </BrowserRouter>
   );
 }
